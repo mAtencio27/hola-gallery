@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from} from '@apollo/client';
 import {onError} from '@apollo/client/link/error'
+import GetNft from './components/GetNft.JS';
 
 //Error handling
 const errorLink = onError(({graphqlErrors, networkError}) => {
@@ -27,13 +28,9 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and poop to reload.
-          </p>
-        </header>
+      <div>
+        {" "}
+        <GetNft />
       </div>
     </ApolloProvider>
   );
