@@ -3,6 +3,7 @@ import './App.css';
 import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from} from '@apollo/client';
 import {onError} from '@apollo/client/link/error'
 
+//Error handling
 const errorLink = onError(({graphqlErrors, networkError}) => {
   if(graphqlErrors) {
     graphqlErrors.map(({ message, location, path}) => {
@@ -17,6 +18,7 @@ const link = from([
   new HttpLink({ uri: "https://graph.holaplex.com/v1"}),
 ]);
 
+//setting up new client
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: link,
