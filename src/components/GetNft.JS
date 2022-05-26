@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useQuery, gql } from "@apollo/client";
 import { LOAD_NFTS } from '../GraphQL/Queries'
 
@@ -12,12 +12,24 @@ function GetNft() {
         variables: { address },
     })
 
+    const [nfts, setNfts] = useState([])
+
     useEffect(()=> {
-        console.log(data)
+        if(data)
+        setNfts(data.nft)
     }, [data]);
 
+    let objRender = (x) => {
+        let nftView = []
+        for(let key of Object.keys(x)){
+            console.log(x[key])
+            nftView.push(<div>{x[key]}</div>)
+        }
+        return nftView
+    }
+
     return (
-        <div>
+        <div> {objRender(nfts)}
         </div>
     )
 }

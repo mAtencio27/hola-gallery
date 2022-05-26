@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from} from '@apollo/client';
 import {onError} from '@apollo/client/link/error'
-import GetNft from './components/GetNft.JS';
+import GetNft from './components/GetNft.js';
 
 //Error handling
 const errorLink = onError(({graphqlErrors, networkError}) => {
