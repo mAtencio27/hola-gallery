@@ -14,7 +14,7 @@ function GetNft() {
     });
 
     const [nfts, setNfts] = useState([])
-    const [creatorInfo, setCreatorInfo] = useState([])
+    const [view, setView] = useState(["none"])
 
     useEffect(()=> {
         if(data)
@@ -22,19 +22,7 @@ function GetNft() {
 
     }, [data]);
 
-
-    //quick and dirty render func
-    // changed to object creator
-    // let objRender = (x) => {
-    //     let nftView = []
-    //     for(let key of Object.keys(x)){
-    //         console.log(x[key])
-    //         nftView.push(<div className="turds">{x[key]}</div>)
-    //     }
-    //     console.log(creatorInfo)
-    //     return nftView
-    // }
-
+    //helper to flatten array
     let arrayIgnore = (ob) => {
         let flatReturn = {}
         for(let key in ob){
@@ -45,16 +33,45 @@ function GetNft() {
         return flatReturn
     }
 
+    //test button to check the OBJECT data. Will rename
     let test = () => {
-        let flatTwitterProfile = arrayIgnore(nfts.creators[0].profile)
-        let flatCreatorProfile = arrayIgnore(nfts.creators[0])
-        let flatNfts = arrayIgnore(nfts)
-        const flatOb = {}
-        console.log(flatCreatorProfile.address)
+        // let flatTwitterProfile = arrayIgnore(nfts.creators[0].profile)
+        // let flatCreatorProfile = arrayIgnore(nfts.creators[0])
+        // let flatNftss = arrayIgnore(nfts)
+        let fullFlat = {
+            nftAddress:nfts.address,
+            nftName:nfts.name,
+            mintAddress:nfts.mintAddress,
+            nftDescription:nfts.description,
+            category:nfts.category,
+            image:nfts.image,
+            handle:nfts.creators[0].profile.handle,
+            profileImageUrlLowres:nfts.creators[0].profile.profileImageUrlLowres,
+            description:nfts.creators[0].profile.description
+        };
+        //console.log(fullFlat)
+        return fullFlat
     }
 
+    // quick and dirty render func
+    // changed to object creator
+    let objRender = () => {
+        let data = test()
+        let nftView = []
+        for(let key of Object.keys(data)){
+            console.log(`${key} : ${data[key]}`)
+            nftView.push(<div className="turds">{data[key]}</div>)
+        }
+        setView(nftView)
+        //return nftView
+    }
+
+    //<button onClick={() => objRender()}>hello</button>
+
     return (
-        <div> <button onClick={test}>hello</button>
+        <div>
+            <button onClick={() => objRender()}>hello</button>
+            <div>{view}</div>
         </div>
     )
 }
