@@ -23,7 +23,7 @@ function GetNft() {
         let nftView = []
         for(let key of Object.keys(x)){
             console.log(x[key])
-            nftView.push(<div>{x[key]}</div>)
+            nftView.push(<div className="turds">{x[key]}</div>)
         }
         return nftView
     }
