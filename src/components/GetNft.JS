@@ -1,77 +1,110 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { useQuery } from "@apollo/client";
+import { useQuery, useLazyQuery } from "@apollo/client";
 import { LOAD_NFTS } from '../GraphQL/Queries'
 import { isArray } from "@apollo/client/cache/inmemory/helpers";
+import { Button, Form, Row, Col, Container } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 
-function GetNft() {
+function GetNft({view, setView}) {
 
     //temp test address
-    const address = "DCXiVUZMPKb8mQu7MeHu7wrmTPsyf5uwdeDQfeuKTX9j"
+    //const address = "DCXiVUZMPKb8mQu7MeHu7wrmTPsyf5uwdeDQfeuKTX9j" mynft
+    // nc9aapaG2on7kKgG6SeuP176XREKiuUuFSwaz9CHXmF
+    //AZf3ww7ZwpkRfmNsoQN5RqJRqgJ6TKv5a4NvJeL8iznT
+    //DmcAidZoJbXByjHv59jwfDDZ6KfNTdbwtFgnKz3pBWh5
+
+    const [address, setAddress] = useState([])
     
-    const {error, loading , data} = useQuery(LOAD_NFTS, {
-        variables: { address },
-    });
+    //need to make this a func that we can call once the sumbmit button is used// first set the new address
+    // const {error, loading , data} = useQuery(LOAD_NFTS, {
+    //     variables: { address },
+    // });
 
-    const [nfts, setNfts] = useState([])
-    const [view, setView] = useState(["none"])
+    const [getResults,{data}] = useLazyQuery(LOAD_NFTS)
 
-    useEffect(()=> {
-        if(data)
-        setNfts(data.nft)
-
-    }, [data]);
-
-    //helper to flatten array
-    let arrayIgnore = (ob) => {
-        let flatReturn = {}
-        for(let key in ob){
-            if(!Array.isArray(ob[key])){
-                flatReturn[key] = ob[key]
-            }
-        }
-        return flatReturn
+    const oneQ = async () => {
+        const res = await getResults({variables: { address }});
+        return res
     }
 
+    
+
     //test button to check the OBJECT data. Will rename
-    let test = () => {
-        // let flatTwitterProfile = arrayIgnore(nfts.creators[0].profile)
-        // let flatCreatorProfile = arrayIgnore(nfts.creators[0])
-        // let flatNftss = arrayIgnore(nfts)
+    let format = () => {
         let fullFlat = {
-            nftAddress:nfts.address,
-            nftName:nfts.name,
-            mintAddress:nfts.mintAddress,
-            nftDescription:nfts.description,
-            category:nfts.category,
-            image:nfts.image,
-            handle:nfts.creators[0].profile.handle,
-            profileImageUrlLowres:nfts.creators[0].profile.profileImageUrlLowres,
-            description:nfts.creators[0].profile.description
+            nftAddress:data.nft.address,
+            nftName:data.nft.name,
+            mintAddress:data.nft.mintAddress,
+            nftDescription:data.nft.description,
+            category:data.nft.category,
+            image:data.nft.image,
+            handle:data.nft.creators[0].profile.handle,
+            profileImageUrlLowres:data.nft.creators[0].profile.profileImageUrlLowres,
+            description:data.nft.creators[0].profile.description
         };
-        //console.log(fullFlat)
         return fullFlat
     }
 
-    // quick and dirty render func
-    // changed to object creator
-    let objRender = () => {
-        let data = test()
-        let nftView = []
-        for(let key of Object.keys(data)){
-            console.log(`${key} : ${data[key]}`)
-            nftView.push(<div className="turds">{data[key]}</div>)
-        }
-        setView(nftView)
-        //return nftView
+    
+
+    let objCardReturn = () => {
+        let nuData = format()
+        // let nftDisplayElement = []
+        // for(let key of Object.keys(nuData)){
+        //     //console.log(`${key} : ${nuData[key]}`)
+        //     nftDisplayElement.push(<div className="turds">{nuData[key]}</div>)
+        // }
+        //Root prop
+        return nuData
+        // return nftDisplayElement
+        //setView(nftDisplayElement)
     }
 
-    //<button onClick={() => objRender()}>hello</button>
+    // const retrieve = async() => {
+    //     return await getResults({variables: { address }})
+    // }
+
+    const submitHandler = async(e) => {
+        //e.preventDefault();
+        let tempView = [...view];
+        const res = await getResults({variables: { address }})
+        //let flatearth = format()
+        // console.log(flatearth)
+        //const objConvert = objCardReturn(res.data)
+        //tempView.push(objConvert)
+        //setView(tempView)
+        // console.log(objConvert)
+        //const objCon
+        //convert = objCardReturn()
+        //console.log(objConvert)
+        tempView.push(res.data)
+        setView(tempView)
+        //console.log(objConvert)
+    };
 
     return (
-        <div>
-            <button onClick={() => objRender()}>hello</button>
-            <div>{view}</div>
+            <div>
+                <form>
+                    <label>nft address
+                        <input type = "text"
+                                value={address}
+                                onChange={(e) => setAddress(e.target.value)}/>
+                    </label>
+                </form>
+                <div>
+                DCXiVUZMPKb8mQu7MeHu7wrmTPsyf5uwdeDQfeuKTX9j
+                nc9aapaG2on7kKgG6SeuP176XREKiuUuFSwaz9CHXmF
+                AZf3ww7ZwpkRfmNsoQN5RqJRqgJ6TKv5a4NvJeL8iznT
+                </div>
+            <div>
+                {JSON.stringify(view)}
+            </div>
+            <div>
+                <button onClick={submitHandler}>
+                    hey
+                </button>
+            </div>
         </div>
     )
 }

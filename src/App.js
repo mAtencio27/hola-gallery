@@ -46,10 +46,10 @@ function App() {
         <div>
           <Switch>
             <Route exact path="/">
-              {<Slide />}
+              {<Slide view={view}/>}
             </Route>
             <Route path="/GetNft">
-              {<GetNft />}
+              {<GetNft view= {view} setView={setView}/>}
             </Route>
           </Switch>
         </div>

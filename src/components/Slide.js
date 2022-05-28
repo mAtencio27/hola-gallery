@@ -5,10 +5,11 @@ import { LOAD_NFTS } from '../GraphQL/Queries'
 import { isArray } from "@apollo/client/cache/inmemory/helpers";
 import { Link } from 'react-router-dom'
 
-function Slide() {
+function Slide(view) {
 
-    return(<div>
+    return(<div className="Main">
             <h1>Slide</h1>
+            <h2>{view.view}</h2>
             <Link to="/GetNft">get it</Link>
           </div>
     )
