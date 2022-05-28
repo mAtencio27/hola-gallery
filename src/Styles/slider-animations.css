@@ -1,0 +1,65 @@
+/* maybe an issue with art as class */
+.slide .artImage {
+  transition: all 2.5s ease;
+  -webkit-transform: translateX(-60px);
+  transform: translateX(-60px);
+  opacity: 0;
+}
+
+/* maybe an issue with description as class */
+.slide .profileMask,
+.slide .twitterHandle,
+.slide .description,
+.slide .qrCodeImage {
+  transition: all 2s ease;
+  -webkit-transform: translateY(100px);
+  transform: translateY(100px);
+  opacity: 0;
+}
+
+.slide.animateIn.previous .artImage,
+.slide.current .artImage,
+.slide.animateIn.next .artImage,
+.slide.animateIn.previous .profileMask,
+.slide.current .profileMask,
+.slide.animateIn.next .profileMask,
+.slide.animateIn.previous .twitterHandle,
+.slide.current .twitterHandle,
+.slide.animateIn.next .twitterHandle,
+.slide.animateIn.previous .description,
+.slide.current .description,
+.slide.animateIn.next .description,
+.slide.animateIn.previous .qrCodeImage,
+.slide.current .qrCodeImage,
+.slide.animateIn.next .qrCodeImage {
+  -webkit-transition-delay: 0.9s;
+  transition-delay: 0.9s;
+  opacity: 1;
+}
+
+.slide.animateIn.previous .twitterHandle,
+.slide.current .twitterHandle,
+.slide.animateIn.next .twitterHandle {
+  -webkit-transform: translateX(-60);
+  transform: translateX(-60);
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+
+.slide.animateIn.previous .description,
+.slide.current .description,
+.slide.animateIn.next .description {
+  -webkit-transform: translateX(-60);
+  transform: translateX(-60);
+  -webkit-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+}
+
+.slide.animateIn.previous .qrCodeImage,
+.slide.current .qrCodeImage,
+.slide.animateIn.next .qrCodeImage {
+  -webkit-transform: translateX(-60);
+  transform: translateX(-60);
+  -webkit-transition-delay: 0.6s;
+  transition-delay: 0.6s;
+}

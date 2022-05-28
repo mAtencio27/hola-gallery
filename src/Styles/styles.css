@@ -1,0 +1,161 @@
+.cardFull {
+  background-color: var(--black);
+  height: 100vh;
+  margin: 0px;
+  min-height: 1920px;
+  min-width: 1080px;
+  mix-blend-mode: normal;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.artFrame {
+  background-color: transparent;
+  height: 1080px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+
+.artImage {
+  background-color: transparent;
+  height: 100%;
+  left: 0px;
+  mix-blend-mode: normal;
+  object-fit: cover;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+
+.artistInfo {
+  background-color: transparent;
+  height: 684px;
+  left: calc(50% - 540px);
+  position: absolute;
+  top: calc(50% + 140px);
+  width: 1080px;
+}
+
+.profileMask {
+  background-color: transparent;
+  height: 200px;
+  left: 440px;
+  position: absolute;
+  top: 0px;
+  width: 200px;
+}
+
+.twitterHandleFrame {
+  background-color: transparent;
+  height: 77px;
+  left: 311px;
+  position: absolute;
+  top: 215px;
+  width: 458px;
+}
+
+.twitterHandle {
+  background-color: transparent;
+  color: var(--white);
+  font-family: var(--font-family-arimo);
+  font-size: var(--font-size-xl);
+  font-style: normal;
+  font-weight: 400;
+  height: 57px;
+  left: calc(50% - 219px);
+  letter-spacing: 0px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: center;
+  top: calc(50% - 28px);
+  width: auto;
+}
+
+.descriptionFrame {
+  background-color: transparent;
+  height: 212px;
+  left: 58px;
+  position: absolute;
+  top: 307px;
+  width: 965px;
+}
+
+.description {
+  background-color: transparent;
+  color: var(--white);
+  font-family: var(--font-family-arimo);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+  height: 192px;
+  left: calc(50% - 472px);
+  letter-spacing: 0px;
+  line-height: normal;
+  mix-blend-mode: normal;
+  position: absolute;
+  text-align: center;
+  top: calc(50% - 96px);
+  width: 945px;
+}
+
+.qrCodeFrame {
+  background-color: transparent;
+  bottom: 0px;
+  height: 150px;
+  left: calc(50% - 75px);
+  position: absolute;
+  width: 150px;
+}
+
+.qrCodeImage {
+  background-color: transparent;
+  height: 100%;
+  left: 0px;
+  mix-blend-mode: normal;
+  object-fit: cover;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+
+.logos {
+  background-color: transparent;
+  bottom: 31px;
+  height: 85px;
+  left: 0px;
+  position: absolute;
+  width: 100%;
+}
+
+.solanaLogo {
+  background-color: transparent;
+  height: calc(100% - 35px);
+  left: calc(50% - 293px);
+  position: absolute;
+  top: 18px;
+  width: 293px;
+}
+
+.logoFrame {
+  background-color: transparent;
+  height: calc(100% - 35px);
+  left: 50%;
+  position: absolute;
+  top: 18px;
+  width: 293px;
+}
+
+.holaplexLogo {
+  background-color: transparent;
+  height: 40px;
+  left: 33px;
+  mix-blend-mode: normal;
+  object-fit: cover;
+  position: absolute;
+  top: 5px;
+  width: 226px;
+}

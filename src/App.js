@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 //Components
 import GetNft from './components/GetNft.js';
 import Slide from './components/Slide';
+import Carousel from './components/Carousel';
 
 
 
@@ -50,6 +51,9 @@ function App() {
             </Route>
             <Route path="/GetNft">
               {<GetNft view= {view} setView={setView}/>}
+            </Route>
+            <Route path="/Carousel">
+              {<Carousel/>}
             </Route>
           </Switch>
         </div>
