@@ -5,8 +5,9 @@ import { LOAD_NFTS } from '../GraphQL/Queries'
 import { isArray } from "@apollo/client/cache/inmemory/helpers";
 import { Button, Form, Row, Col, Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
-function GetNft({view, setView}) {
+function GetNft({view, setView, setObjArray, objArray}) {
 
     //temp test address
     //const address = "DCXiVUZMPKb8mQu7MeHu7wrmTPsyf5uwdeDQfeuKTX9j" mynft
@@ -66,21 +67,16 @@ function GetNft({view, setView}) {
     // }
 
     const submitHandler = async(e) => {
+        if(address){
         //e.preventDefault();
-        let tempView = [...view];
+        //console.log(address) first button click logs the correct address
+        let tempObjArray = [...objArray];
         const res = await getResults({variables: { address }})
-        //let flatearth = format()
-        // console.log(flatearth)
-        //const objConvert = objCardReturn(res.data)
-        //tempView.push(objConvert)
-        //setView(tempView)
-        // console.log(objConvert)
-        //const objCon
-        //convert = objCardReturn()
-        //console.log(objConvert)
-        tempView.push(res.data)
-        setView(tempView)
-        //console.log(objConvert)
+        tempObjArray.push(res.data)
+        setObjArray(tempObjArray)
+        setView(objArray)
+        setAddress("")
+        }
     };
 
     return (
@@ -102,8 +98,14 @@ function GetNft({view, setView}) {
             </div>
             <div>
                 <button onClick={submitHandler}>
-                    hey
+                    add
                 </button>
+            </div>
+            <div>
+                <Link to="/Carousel">get it</Link>
+            </div>
+            <div>
+                <Link to="/">VIEW</Link>
             </div>
         </div>
     )

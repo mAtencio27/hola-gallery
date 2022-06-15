@@ -39,7 +39,10 @@ const client = new ApolloClient({
 
 function App() {
   //props to be in the Root. 
-  const [view, setView] = useState(["none"])
+  const [view, setView] = useState([])
+  const [objArray, setObjArray] = useState([]);
+
+  //{name:"marcus"}
 
   return (
     <Router>
@@ -50,10 +53,10 @@ function App() {
               {<Slide view={view}/>}
             </Route>
             <Route path="/GetNft">
-              {<GetNft view= {view} setView={setView}/>}
+              {<GetNft view= {view} setView={setView} setObjArray={setObjArray} objArray={objArray}/>}
             </Route>
             <Route path="/Carousel">
-              {<Carousel/>}
+              {<Carousel view= {view}/>}
             </Route>
           </Switch>
         </div>
