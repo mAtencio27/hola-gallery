@@ -56,11 +56,11 @@ const content = [
   }
 ];
 
-const Carousel = (objArray) => (
+const Carousel = (view) => (
 
   <div>
     <Slider className="cardFull" autoplay="1" infinite duration="10000">
-      {content.map((item, index) => (
+      {view.view.map((item, index) => (
         <div key={index} className="sliderContent">
           <div className="cardFull screen">
             <div className="artFrame">
