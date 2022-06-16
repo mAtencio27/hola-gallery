@@ -15,9 +15,9 @@ function Slide(view) {
     let cardholder = []
     if(view){
       console.log(`length of global view: ${view.view.length}`)
-      console.log(`These are the keys: ${Object.keys(view.view[0].nft)}`)
+      console.log(`These are the keys: ${Object.keys(view.view)}`)
       for(let i = 0; i < view.view.length;i++){
-        cardholder.push(<div>{view.view[i].nft.name}</div>)
+        cardholder.push(<div>{view.view[i].twitterHandle}</div>)
         console.log(cards)
         setCards(cardholder)
       }

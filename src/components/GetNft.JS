@@ -9,19 +9,10 @@ import { Link } from "react-router-dom";
 
 function GetNft({view, setView, setObjArray, objArray}) {
 
-    //temp test address
-    //const address = "DCXiVUZMPKb8mQu7MeHu7wrmTPsyf5uwdeDQfeuKTX9j" mynft
-    // nc9aapaG2on7kKgG6SeuP176XREKiuUuFSwaz9CHXmF
-    //AZf3ww7ZwpkRfmNsoQN5RqJRqgJ6TKv5a4NvJeL8iznT
-    //DmcAidZoJbXByjHv59jwfDDZ6KfNTdbwtFgnKz3pBWh5
-
+    // FOR THE BUTTON HANDLER 
     const [address, setAddress] = useState([])
-    
-    //need to make this a func that we can call once the sumbmit button is used// first set the new address
-    // const {error, loading , data} = useQuery(LOAD_NFTS, {
-    //     variables: { address },
-    // });
 
+    //APOLLO RESULTS FUNC
     const [getResults,{data}] = useLazyQuery(LOAD_NFTS)
 
     const oneQ = async () => {
@@ -32,39 +23,21 @@ function GetNft({view, setView, setObjArray, objArray}) {
     
 
     //test button to check the OBJECT data. Will rename
-    let format = () => {
+    let format = (n) => {
         let fullFlat = {
-            nftAddress:data.nft.address,
-            nftName:data.nft.name,
-            mintAddress:data.nft.mintAddress,
-            nftDescription:data.nft.description,
-            category:data.nft.category,
-            image:data.nft.image,
-            handle:data.nft.creators[0].profile.handle,
-            profileImageUrlLowres:data.nft.creators[0].profile.profileImageUrlLowres,
-            description:data.nft.creators[0].profile.description
+            nftAddress:n.data.nft.address,
+            art:n.data.nft.image,
+            profileMask:n.data.nft.creators[0].profile.profileImageUrlLowres,
+            twitterHandle:n.data.nft.creators[0].profile.handle,
+            description:n.data.nft.creators[0].profile.description,
+            qrCode: "https://anima-uploads.s3.amazonaws.com/projects/629190b42b83fc7d786b7112/releases/629200c080d6b728d3b7613a/img/allenton-hippo-qr-code-1@2x.png",
+            solanaLogo:"https://anima-uploads.s3.amazonaws.com/projects/629190b42b83fc7d786b7112/releases/629200c080d6b728d3b7613a/img/l-sponsors@2x.png",
+            holaplexLogo:"https://anima-uploads.s3.amazonaws.com/projects/629190b42b83fc7d786b7112/releases/629200c080d6b728d3b7613a/img/holaplex-logo-compressed-07@2x.png"
         };
+        //console.log(fullFlat)
         return fullFlat
     }
 
-    
-
-    let objCardReturn = () => {
-        let nuData = format()
-        // let nftDisplayElement = []
-        // for(let key of Object.keys(nuData)){
-        //     //console.log(`${key} : ${nuData[key]}`)
-        //     nftDisplayElement.push(<div className="turds">{nuData[key]}</div>)
-        // }
-        //Root prop
-        return nuData
-        // return nftDisplayElement
-        //setView(nftDisplayElement)
-    }
-
-    // const retrieve = async() => {
-    //     return await getResults({variables: { address }})
-    // }
 
     const submitHandler = async(e) => {
         if(address){
@@ -72,8 +45,12 @@ function GetNft({view, setView, setObjArray, objArray}) {
         //console.log(address) first button click logs the correct address
         let tempObjArray = [...objArray];
         const res = await getResults({variables: { address }})
-        tempObjArray.push(res.data)
+        //try to convert to workable obj
+        let formatedData = format(res)
+        //
+        tempObjArray.push(formatedData)
         setObjArray(tempObjArray)
+        //console.log(objArray)
         setView(objArray)
         setAddress("")
         }
