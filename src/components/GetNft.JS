@@ -2,9 +2,9 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useQuery, useLazyQuery } from "@apollo/client";
 import { LOAD_NFTS } from '../GraphQL/Queries'
-import { isArray } from "@apollo/client/cache/inmemory/helpers";
-import { Button, Form, Row, Col, Container } from "react-bootstrap";
-import { useForm } from "react-hook-form";
+// import { isArray } from "@apollo/client/cache/inmemory/helpers";
+// import { Button, Form, Row, Col, Container } from "react-bootstrap";
+// import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 function GetNft({view, setView, setObjArray, objArray}) {
@@ -14,11 +14,6 @@ function GetNft({view, setView, setObjArray, objArray}) {
 
     //APOLLO RESULTS FUNC
     const [getResults,{data}] = useLazyQuery(LOAD_NFTS)
-
-    const oneQ = async () => {
-        const res = await getResults({variables: { address }});
-        return res
-    }
 
     
 
@@ -41,17 +36,9 @@ function GetNft({view, setView, setObjArray, objArray}) {
 
     const submitHandler = async(e) => {
         if(address){
-        //e.preventDefault();
-        //console.log(address) first button click logs the correct address
-        let tempObjArray = [...objArray];
         const res = await getResults({variables: { address }})
-        //try to convert to workable obj
         let formatedData = format(res)
-        //
-        tempObjArray.push(formatedData)
-        setObjArray(tempObjArray)
-        //console.log(objArray)
-        setView(objArray)
+        setView(current => [...current, formatedData])
         setAddress("")
         }
     };
