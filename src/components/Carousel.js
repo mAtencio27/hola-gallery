@@ -7,6 +7,7 @@ import "/Users/Marcus/Desktop/hola-gallery/src/Styles/slider-animations.css";
 import "/Users/Marcus/Desktop/hola-gallery/src/Styles/styles.css";
 import "/Users/Marcus/Desktop/hola-gallery/src/Styles/styleguide.css";
 import "/Users/Marcus/Desktop/hola-gallery/src/Styles/globals.css";
+import { Link } from "react-router-dom";
 
 const content = [
   {
@@ -83,14 +84,16 @@ const Carousel = (view) => (
               </div>
             </div>
             <div className="logos">
-              <img className="solanaLogo" src={item.solanaLogo} alt="solona" />
+                <img className="solanaLogo" src={item.solanaLogo} alt="solona" />
 
               <div className="logoFrame">
-                <img
-                  className="holaplexLogo"
-                  src={item.holaplexLogo}
-                  alt="holaplex"
-                />
+                <Link to="/GetNft">
+                  <img
+                    className="holaplexLogo"
+                    src={item.holaplexLogo}
+                    alt="holaplex"
+                  />
+                </Link>
               </div>
             </div>
           </div>
