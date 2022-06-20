@@ -22,7 +22,7 @@ function GetNft({view, setView, setObjArray, objArray}) {
         let fullFlat = {
             nftAddress:n.data.nft.address,
             art:n.data.nft.image,
-            profileMask:n.data.nft.creators[0].profile.profileImageUrlLowres,
+            profileMask:n.data.nft.creators[0].profile.profileImageUrlHighres,
             twitterHandle:n.data.nft.creators[0].profile.handle,
             description:n.data.nft.creators[0].profile.description,
             qrCode: "https://anima-uploads.s3.amazonaws.com/projects/629190b42b83fc7d786b7112/releases/629200c080d6b728d3b7613a/img/allenton-hippo-qr-code-1@2x.png",

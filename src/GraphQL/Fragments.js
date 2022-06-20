@@ -12,7 +12,7 @@ export const CREATOR_DETAILS = gql`
 export const TWITTER_DETAILS = gql`
     fragment twitterDetails on TwitterProfile {
         handle
-        profileImageUrlLowres
+        profileImageUrlHighres
         description
     }
 `
