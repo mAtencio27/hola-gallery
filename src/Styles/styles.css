@@ -22,9 +22,9 @@
 .artImage {
   background-color: transparent;
   height: 100%;
-  left: 0px;
+  left: 50px;
   mix-blend-mode: normal;
-  object-fit: cover;
+  object-fit: contain;
   position: absolute;
   top: 0px;
   width: 100%;

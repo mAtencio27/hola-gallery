@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import React from "react";
 import { useEffect, useState } from "react";
 //Components
-import GetNft from './components/GetNft.js';
+import GetNft from './components/GetNft';
 import Slide from './components/Slide';
 import Carousel from './components/Carousel';
 
