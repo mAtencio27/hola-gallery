@@ -61,7 +61,7 @@ const content = [
 const Carousel = (view) => (
 
   <div>
-    <Slider className="cardFull" autoplay="1" infinite duration="10000">
+    <Slider className="cardFull" autoplay="1" infinite duration="10000" previousButton="" nextButton="">
       {view.view.map((item, index) => (
         <div key={index} className="sliderContent">
           <div className="cardFull screen">
