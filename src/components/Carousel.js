@@ -59,43 +59,35 @@ const content = [
 ];
 
 const Carousel = (view) => (
-
   <div>
-    <Slider className="cardFull" autoplay="1" infinite duration="10000" previousButton="" nextButton="">
+    <Slider className="card" autoplay="1" infinite duration="8000" previousButton="" nextButton="">
       {view.view.map((item, index) => (
         <div key={index} className="sliderContent">
-          <div className="cardFull screen">
+          <div className="card">
             <div className="artFrame">
-              <img className="artImage" src={item.art} alt="art" />
+              <img className="artFile" src={item.art} alt="art" />
+              <div className="artTitle">{"need to check API for NFT name"}</div>
+              <div className="artDescription">{"need to check AP for NFT metadata"}</div>
             </div>
-            <div className="artistInfo">
+            <div className="artist">
+              <div className="profileMask">
+                <img
+                  className="profileImage"
+                  src={item.profileMask}
+                  alt="pfp"
+                />
+                <div className="twitterHandleText">
+                  {item.twitterHandle}
+                </div>
+              </div>
+              <div className="artistBioText">{item.description}</div>
+            </div>
+            <div className="qrCodeFrame">
               <img
-                className="profileMask"
-                src={item.profileMask}
-                alt="profile"
+                className="qrCodeImage"
+                src={item.qrCode}
+                alt="qr code"
               />
-              <div className="twitterHandleFrame">
-                <div className="twitterHandle">{item.twitterHandle}</div>
-              </div>
-              <div className="descriptionFrame">
-                <div className="description">{item.description}</div>
-              </div>
-              <div className="qrCodeFrame">
-                <img className="qrCodeImage" src={item.qrCode} alt="qr code" />
-              </div>
-            </div>
-            <div className="logos">
-                <img className="solanaLogo" src={item.solanaLogo} alt="solona" />
-
-              <div className="logoFrame">
-                <Link to="/GetNft">
-                  <img
-                    className="holaplexLogo"
-                    src={item.holaplexLogo}
-                    alt="holaplex"
-                  />
-                </Link>
-              </div>
             </div>
           </div>
         </div>
@@ -110,5 +102,6 @@ root.render(
     <Carousel />
   </React.StrictMode>
 );
+
 
 export default Carousel
