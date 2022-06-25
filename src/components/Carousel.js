@@ -83,11 +83,13 @@ const Carousel = (view) => (
               <div className="artistBioText">{item.description}</div>
             </div>
             <div className="qrCodeFrame">
-              <img
-                className="qrCodeImage"
-                src={item.qrCode}
-                alt="qr code"
-              />
+              <Link to="/GetNft">
+                <img
+                  className="qrCodeImage"
+                  src={item.qrCode}
+                  alt="qr code"
+                />
+              </Link>
             </div>
           </div>
         </div>

@@ -66,10 +66,7 @@ function GetNft({view, setView, setObjArray, objArray}) {
                 </button>
             </div>
             <div>
-                <Link to="/Carousel">get it</Link>
-            </div>
-            <div>
-                <Link to="/">VIEW</Link>
+                <Link to="/Carousel">VIEW</Link>
             </div>
         </div>
     )
