@@ -6,6 +6,10 @@ import { LOAD_NFTS } from '../GraphQL/Queries'
 // import { Button, Form, Row, Col, Container } from "react-bootstrap";
 // import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import "normalize.css/normalize.css";
+import '../Styles/styles.css';
+import '../Styles/styleguide.css';
+import '../Styles/globals.css';
 
 function GetNft({view, setView, setObjArray, objArray}) {
 
@@ -50,6 +54,7 @@ function GetNft({view, setView, setObjArray, objArray}) {
                     <label>nft address
                         <input type = "text"
                                 value={address}
+                                placeholder="token address"
                                 onChange={(e) => setAddress(e.target.value)}/>
                     </label>
                 </form>

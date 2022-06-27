@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import Slider from "react-animated-slider";
 import "react-animated-slider/build/horizontal.css";
 import "normalize.css/normalize.css";
-//import "/Users/Marcus/Desktop/hola-gallery/src/Styles/slider-animations.css";
 import '../Styles/slider-animations.css'
 import '../Styles/styles.css';
 import '../Styles/styleguide.css';
