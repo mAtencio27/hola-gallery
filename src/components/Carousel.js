@@ -66,7 +66,7 @@ const Carousel = (view) => (
           <div className="card">
             <div className="artFrame">
               <img className="artFile" src={item.art} alt="art" />
-              <div className="artTitle">{"need to check API for NFT name"}</div>
+              <div className="artTitle">{item.name}</div>
               <div className="artDescription">{"need to check AP for NFT metadata"}</div>
             </div>
             <div className="artist">

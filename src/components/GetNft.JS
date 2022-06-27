@@ -22,6 +22,7 @@ function GetNft({view, setView, setObjArray, objArray}) {
         let fullFlat = {
             nftAddress:n.data.nft.address,
             art:n.data.nft.image,
+            name:n.data.nft.name,
             profileMask:n.data.nft.creators[0].profile.profileImageUrlHighres,
             twitterHandle:n.data.nft.creators[0].profile.handle,
             description:n.data.nft.creators[0].profile.description,
