@@ -10,6 +10,9 @@ import "normalize.css/normalize.css";
 import '../Styles/styles.css';
 import '../Styles/styleguide.css';
 import '../Styles/globals.css';
+import '../Styles/submission.css';
+import subButtonImg from '../img/submit@1x.png';
+import proceedButtonImg from '../img/proceed@1x.png'
 
 function GetNft({view, setView, setObjArray, objArray}) {
 
@@ -48,33 +51,52 @@ function GetNft({view, setView, setObjArray, objArray}) {
         }
     };
 
+    //DCXiVUZMPKb8mQu7MeHu7wrmTPsyf5uwdeDQfeuKTX9j
+    //nc9aapaG2on7kKgG6SeuP176XREKiuUuFSwaz9CHXmF
+    //AZf3ww7ZwpkRfmNsoQN5RqJRqgJ6TKv5a4NvJeL8iznT
+
     return (
-            <div>
-                <form>
-                    <label>nft address
-                        <input type = "text"
-                                value={address}
-                                placeholder="token address"
-                                onChange={(e) => setAddress(e.target.value)}/>
-                    </label>
-                </form>
-                <div>
-                DCXiVUZMPKb8mQu7MeHu7wrmTPsyf5uwdeDQfeuKTX9j
-                nc9aapaG2on7kKgG6SeuP176XREKiuUuFSwaz9CHXmF
-                AZf3ww7ZwpkRfmNsoQN5RqJRqgJ6TKv5a4NvJeL8iznT
+            <div className="submission screen">
+                <div className="input-the-nft-token-address-03UtQu valign-text-middle">Input the NFT token address:</div>
+                <div className="input-frame-03UtQu">
+                    <input className="input-box-THA6wH" 
+                            value={address} 
+                            name="inputbox" 
+                            placeholder="token address" 
+                            type="text"
+                            onChange={(e) => setAddress(e.target.value)}/>
                 </div>
-            <div>
-                {JSON.stringify(view)}
+                <div className="submit-frame-03UtQu">
+                    <div className="submit-button-iMW9qQ
+                         smart-layers-pointers" 
+                         onClick={submitHandler}>
+                        <img className="submit-wIbCCc" src={subButtonImg}></img>
+                    </div>
+                </div>
+                
+                <Link to="/Carousel">
+                    <div className="proceed-frame-03UtQu">
+                        <div className="proceed-button-YTGg5t smart-layers-pointers">
+                            <img className="proceed-wxuvQK" src={proceedButtonImg}/>
+                        </div>
+                    </div>
+                </Link>
+
+               
+                {view.map((item,index)=>{return <div className="output-frame-03UtQu">
+                    <div className="output-art-frame-WK0S52">
+                        <img className="output-art-mZ0xXQ" src={item.art}/>
+                    </div>
+                    <div className="output-name-WK0S52">
+                        <div className="output-name-sBiOAQ valign-text-middle">
+                        {item.name}
+                        </div>
+                    </div>
+                </div>})}
+                
+
+
             </div>
-            <div>
-                <button onClick={submitHandler}>
-                    add
-                </button>
-            </div>
-            <div>
-                <Link to="/Carousel">VIEW</Link>
-            </div>
-        </div>
     )
 }
 
