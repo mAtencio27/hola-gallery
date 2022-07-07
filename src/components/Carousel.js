@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import Slider from "react-animated-slider";
 import "react-animated-slider/build/horizontal.css";
 import "normalize.css/normalize.css";
-//import "/Users/Marcus/Desktop/hola-gallery/src/Styles/slider-animations.css";
 import '../Styles/slider-animations.css'
 import '../Styles/styles.css';
 import '../Styles/styleguide.css';
@@ -66,7 +65,7 @@ const Carousel = (view) => (
           <div className="card">
             <div className="artFrame">
               <img className="artFile" src={item.art} alt="art" />
-              <div className="artTitle">{"need to check API for NFT name"}</div>
+              <div className="artTitle">{item.name}</div>
               <div className="artDescription">{"need to check AP for NFT metadata"}</div>
             </div>
             <div className="artist">
@@ -83,11 +82,13 @@ const Carousel = (view) => (
               <div className="artistBioText">{item.description}</div>
             </div>
             <div className="qrCodeFrame">
-              <img
-                className="qrCodeImage"
-                src={item.qrCode}
-                alt="qr code"
-              />
+              <Link to="/GetNft">
+                <img
+                  className="qrCodeImage"
+                  src={item.qrCode}
+                  alt="qr code"
+                />
+              </Link>
             </div>
           </div>
         </div>
