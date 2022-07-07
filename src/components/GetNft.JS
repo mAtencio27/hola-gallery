@@ -6,6 +6,10 @@ import { LOAD_NFTS } from '../GraphQL/Queries'
 // import { Button, Form, Row, Col, Container } from "react-bootstrap";
 // import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import "normalize.css/normalize.css";
+import '../Styles/styles.css';
+import '../Styles/styleguide.css';
+import '../Styles/globals.css';
 
 function GetNft({view, setView, setObjArray, objArray}) {
 
@@ -22,6 +26,7 @@ function GetNft({view, setView, setObjArray, objArray}) {
         let fullFlat = {
             nftAddress:n.data.nft.address,
             art:n.data.nft.image,
+            name:n.data.nft.name,
             profileMask:n.data.nft.creators[0].profile.profileImageUrlHighres,
             twitterHandle:n.data.nft.creators[0].profile.handle,
             description:n.data.nft.creators[0].profile.description,
@@ -44,34 +49,42 @@ function GetNft({view, setView, setObjArray, objArray}) {
     };
 
     return (
+            <>
+                        <div>Examples Token Addresses:</div>
             <div>
-                <form>
-                    <label>nft address
-                        <input type = "text"
-                                value={address}
-                                onChange={(e) => setAddress(e.target.value)}/>
-                    </label>
-                </form>
-                <div>
                 DCXiVUZMPKb8mQu7MeHu7wrmTPsyf5uwdeDQfeuKTX9j
-                nc9aapaG2on7kKgG6SeuP176XREKiuUuFSwaz9CHXmF
-                AZf3ww7ZwpkRfmNsoQN5RqJRqgJ6TKv5a4NvJeL8iznT
-                </div>
-            <div>
-                {JSON.stringify(view)}
             </div>
             <div>
-                <button onClick={submitHandler}>
-                    add
+                nc9aapaG2on7kKgG6SeuP176XREKiuUuFSwaz9CHXmF
+            </div>
+            <div>
+                AZf3ww7ZwpkRfmNsoQN5RqJRqgJ6TKv5a4NvJeL8iznT
+            </div>
+            <div className="submissionScreen">
+            <div className="inputDiv">
+            <form>
+                <label>Input: 
+                    <input type="text"
+                        value={address}
+                        placeholder="NFT Token Address"
+                        onChange={(e) => setAddress(e.target.value)} />
+                </label>
+            </form>
+            
+                <button onClick={submitHandler} class="submitButton">
+                    Submit
                 </button>
             </div>
-            <div>
-                <Link to="/Carousel">get it</Link>
-            </div>
-            <div>
-                <Link to="/">VIEW</Link>
+            <div className="nftConfirm">
+                <div>
+                    <Link to="/Carousel">VIEW</Link>
+                </div>
+                <div>
+                    {JSON.stringify(view)}
+                </div>
             </div>
         </div>
+            </>
     )
 }
 

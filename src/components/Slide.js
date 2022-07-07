@@ -33,7 +33,7 @@ function Slide(view) {
               <div>
                   <button onClick={cardMaker}>cards</button>
               </div>
-            <Link to="/GetNft">get it</Link>
+            <Link to="/GetNft">Input Token Addresses</Link>
           </div>
     )
 };

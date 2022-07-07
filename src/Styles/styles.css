@@ -119,3 +119,47 @@
   top: calc(50% - 2.5vh);
   width: 100%;
 }
+
+.submissionScreen {
+  background-color: var(--black);
+  mix-blend-mode: normal;
+  overflow: hidden;
+  position: relative;
+  color: var(--white);
+  font-family: var(--font-family-arimo);
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+  font-size: 3vh;
+  height: 100vh;
+  width: 100%;
+
+}
+
+.submissionScreen .inputDiv {
+  background-color: orange;
+  width: 100%;
+  height: 15vh;
+  position:absolute;
+}
+
+.submissionScreen .submitButton {
+  position: absolute;
+  background-color: #03E1FF;
+  border-radius: 5px;
+  padding: 1vw;
+  width: 10vw;
+  min-width: 100px;
+}
+
+.submitButton:hover {
+  background-color: #00FFA3;
+}
+
+.submissionScreen .nftConfirm {
+  background-color: blue;
+  width: 100%;
+  height: 15vh;
+  top: 15vh;
+  position: absolute;
+}
