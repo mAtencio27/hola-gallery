@@ -42,19 +42,18 @@ h1, h2, h3, p,
 }
 
 .card {
-  background-color: black;
   position: relative;
   height: 100vh;
   width: 100%;
 }
-.card .artFrame {
+.artFrame {
   background-color: var(--test1);
   position: absolute;
   height: 70%;
   top: 0;
   width: 100%;
 }
-.artFrame .artFile {
+.artFile {
   background-color: var(--test2);
   position: absolute;
   object-fit: contain;
@@ -62,7 +61,7 @@ h1, h2, h3, p,
   width: 100%;
 }
 
-.artFrame .artTitle {
+.artTitle {
   background-color: var(--test3);
   position: absolute;
   top: 81%;
@@ -70,7 +69,7 @@ h1, h2, h3, p,
   width: 100%;
 }
 
-.artFrame .artDescription {
+.artDescription {
   background-color: var(--test4);
   position: absolute;
   font-size: 2vh;
@@ -86,7 +85,7 @@ h1, h2, h3, p,
   width: 100%;
 }
 
-.artist .profileImage {
+.profileImage {
   border-radius: 50%;
   object-fit: cover;
   left: calc(50% - 2.5vh);
@@ -94,7 +93,7 @@ h1, h2, h3, p,
   height: 5vh;
 }
 
-.artist .twitterHandleText {
+.twitterHandleText {
   background-color: var(--test6);
   position: absolute;
   font-size: 2.5vh;
@@ -103,7 +102,7 @@ h1, h2, h3, p,
   width: 100%;
 }
 
-.artist .artistBioText {
+.artistBioText {
   background-color: var(--test7);
   position: absolute;
   padding-left: 15vw;
@@ -113,7 +112,7 @@ h1, h2, h3, p,
   width: 100%;
 }
 
-.card .qrCodeFrame {
+.qrCodeFrame {
   background-color: var(--test8);
   top: 93%;
   height: 6vh;
@@ -121,7 +120,7 @@ h1, h2, h3, p,
   width: 100%;
 }
 
-.card .qrCodeImage {
+.qrCodeImage {
   background-color: transparent;
   height: 100%;
   object-fit: contain;
@@ -130,6 +129,10 @@ h1, h2, h3, p,
   width: 100%;
 }
 
+/*
+Submission Screen Page
+*/
+
 .submissionScreen {
   overflow: hidden;
   position: relative;
@@ -137,7 +140,7 @@ h1, h2, h3, p,
   height: 100vh;
 }
 
-.submissionScreen .inputBox {
+.inputBox {
   width: 70%;
   height: 5vh;
   position:absolute;
@@ -157,12 +160,12 @@ h1, h2, h3, p,
   top:15vh;
 
 }
-.submissionScreen .submitButton {
+.submitButton {
   background-color: #DC1FFF;
   left: 15%;
 }
 
-.submissionScreen .proceedButton {
+.proceedButton {
   background-color:  #00FFA3;
   right:15%;
 }
@@ -171,30 +174,115 @@ h1, h2, h3, p,
   background-color: #03E1FF;
 }
 
-.submissionScreen .nftConfirm {
+/*
+Preview Card(s) when submitting addresses
+*/
+
+.nftConfirm {
   background-color: blue;
   width: 10vw;
   top: 30vh;
   position: absolute;
 }
 
-.nftConfirm .cardPreview {
+.cardPreview {
   background-color: #DC1FFF;
   width: 10vw;
   height: 17.8vw;
 }
 
-.nftConfirm .outputArt {
+.outputArt {
   background-color: orange;
   width: 100%;
   position: absolute;
 }
 
-.nftConfirm .outputName {
+.outputName {
   background-color: yellow;
   width: 100%;
   bottom: 0;
   position: absolute;
+}
 
+.nftConfirm .artFrame {
+  background-color: var(--test1);
+  position: absolute;
+  height: 70%;
+  top: 0;
+  width: 100%;
+}
+.nftConfirm .artFile {
+  background-color: var(--test2);
+  position: absolute;
+  object-fit: contain;
+  height: 80%;
+  width: 100%;
+}
 
+.nftConfirm .artTitle {
+  background-color: var(--test3);
+  position: absolute;
+  top: 81%;
+  font-size: 3vh;
+  width: 100%;
+}
+
+.nftConfirm .artDescription {
+  background-color: var(--test4);
+  position: absolute;
+  font-size: 2vh;
+  top: 87%;
+  height: 12%;
+  width: 100%;
+}
+.nftConfirm .artist {
+  background-color: var(--test5);
+  position: absolute;
+  top: 71%;
+  height: 21%;
+  width: 100%;
+}
+
+.nftConfirm .profileImage {
+  border-radius: 50%;
+  object-fit: cover;
+  left: calc(50% - 2.5vh);
+  position: absolute;
+  height: 5vh;
+}
+
+.nftConfirm .twitterHandleText {
+  background-color: var(--test6);
+  position: absolute;
+  font-size: 2.5vh;
+  height: 14%;
+  top: 25%;
+  width: 100%;
+}
+
+.nftConfirm .artistBioText {
+  background-color: var(--test7);
+  position: absolute;
+  padding-left: 15vw;
+  padding-right: 15vw;
+  top: 40%;
+  height: 55%;
+  width: 100%;
+}
+
+.nftConfirm .qrCodeFrame {
+  background-color: var(--test8);
+  top: 93%;
+  height: 6vh;
+  position: absolute;
+  width: 100%;
+}
+
+.nftConfirm .qrCodeImage {
+  background-color: transparent;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  top: calc(50% - 2.5vh);
+  width: 100%;
 }

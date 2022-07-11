@@ -77,10 +77,31 @@ function GetNft({view, setView, setObjArray, objArray}) {
 
                <div className="nftConfirm">
                     {view.map((item,index)=>{return <div className="cardPreview">
-                        <img className="outputArt" src={item.art} alt='nft'/>
-                        <div className="outputName">
-                        {item.name}
-                        </div>
+                                <div className="artFrame">
+                                <img className="artFile" src={item.art} alt="art" />
+                                <div className="artTitle">{item.name}</div>
+                                <div className="artDescription">{"need to check AP for NFT metadata"}</div>
+                                </div>
+                                <div className="artist">
+                                <div className="profileMask">
+                                    <img
+                                    className="profileImage"
+                                    src={item.profileMask}
+                                    alt="pfp"
+                                    />
+                                    <div className="twitterHandleText">
+                                    {item.twitterHandle}
+                                    </div>
+                                </div>
+                                <div className="artistBioText">{item.description}</div>
+                                </div>
+                                <div className="qrCodeFrame">
+                                    <img
+                                    className="qrCodeImage"
+                                    src={item.qrCode}
+                                    alt="qr code"
+                                    />
+                                </div>
                     </div>})}
                 </div>
 
