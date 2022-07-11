@@ -11,8 +11,7 @@ import '../Styles/styles.css';
 import '../Styles/styleguide.css';
 import '../Styles/globals.css';
 import '../Styles/submission.css';
-import subButtonImg from '../img/submit@1x.png';
-import proceedButtonImg from '../img/proceed@1x.png'
+
 
 function GetNft({view, setView, setObjArray, objArray}) {
 
@@ -56,44 +55,34 @@ function GetNft({view, setView, setObjArray, objArray}) {
     //AZf3ww7ZwpkRfmNsoQN5RqJRqgJ6TKv5a4NvJeL8iznT
 
     return (
-            <div className="submission screen">
-                <div className="input-the-nft-token-address-03UtQu valign-text-middle">Input the NFT token address:</div>
-                <div className="input-frame-03UtQu">
-                    <input className="input-box-THA6wH" 
-                            value={address} 
-                            name="inputbox" 
-                            placeholder="token address" 
-                            type="text"
-                            onChange={(e) => setAddress(e.target.value)}/>
-                </div>
-                <div className="submit-frame-03UtQu">
-                    <div className="submit-button-iMW9qQ
-                         smart-layers-pointers" 
-                         onClick={submitHandler}>
-                        <img className="submit-wIbCCc" src={subButtonImg}></img>
-                    </div>
+            <div className="submissionScreen">
+                <h1>Fart Viewer</h1>
+                <h2>Input the NFT token address:</h2>
+                <input className="inputBox" 
+                        value={address} 
+                        name="inputbox" 
+                        placeholder="token address" 
+                        type="text"
+                        onChange={(e) => setAddress(e.target.value)}/>
+                <div className="submitButton"
+                        onClick={submitHandler}>
+                            Submit
                 </div>
                 
                 <Link to="/Carousel">
-                    <div className="proceed-frame-03UtQu">
-                        <div className="proceed-button-YTGg5t smart-layers-pointers">
-                            <img className="proceed-wxuvQK" src={proceedButtonImg}/>
-                        </div>
+                    <div className="proceedButton">
+                        Proceed
                     </div>
                 </Link>
 
-               
-                {view.map((item,index)=>{return <div className="output-frame-03UtQu">
-                    <div className="output-art-frame-WK0S52">
-                        <img className="output-art-mZ0xXQ" src={item.art}/>
-                    </div>
-                    <div className="output-name-WK0S52">
-                        <div className="output-name-sBiOAQ valign-text-middle">
+               <div className="nftConfirm">
+                    {view.map((item,index)=>{return <div className="cardPreview">
+                        <img className="outputArt" src={item.art} alt='nft'/>
+                        <div className="outputName">
                         {item.name}
                         </div>
-                    </div>
-                </div>})}
-                
+                    </div>})}
+                </div>
 
 
             </div>
