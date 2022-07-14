@@ -5,7 +5,6 @@ import "react-animated-slider/build/horizontal.css";
 import "normalize.css/normalize.css";
 import '../Styles/slider-animations.css'
 import '../Styles/styles.css';
-import '../Styles/styleguide.css';
 import '../Styles/globals.css';
 import { Link } from "react-router-dom";
 
@@ -66,7 +65,7 @@ const Carousel = (view) => (
             <div className="artFrame">
               <img className="artFile" src={item.art} alt="art" />
               <div className="artTitle">{item.name}</div>
-              <div className="artDescription">{"need to check AP for NFT metadata"}</div>
+              <div className="artDescription">{"need to check API for NFT metadata"}</div>
             </div>
             <div className="artist">
               <div className="profileMask">

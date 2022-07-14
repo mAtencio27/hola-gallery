@@ -8,9 +8,7 @@ import { LOAD_NFTS } from '../GraphQL/Queries'
 import { Link } from "react-router-dom";
 import "normalize.css/normalize.css";
 import '../Styles/styles.css';
-import '../Styles/styleguide.css';
 import '../Styles/globals.css';
-import '../Styles/submission.css';
 
 
 function GetNft({view, setView, setObjArray, objArray}) {
@@ -67,14 +65,13 @@ function GetNft({view, setView, setObjArray, objArray}) {
                 <div className="buttons">
                     <div className="submitButton"
                             onClick={submitHandler}>
-                                Submit
+                                <h3>Submit</h3>
                     </div>
-                    
-                    <Link to="/Carousel">
-                        <div className="proceedButton">
-                            Proceed
-                        </div>
-                    </Link>
+                    <a href="/Carousel" className="proceedButton">
+                                                    
+                            <h3>Proceed</h3>
+                    </a>
+
                 </div>
 
 
@@ -84,7 +81,7 @@ function GetNft({view, setView, setObjArray, objArray}) {
                                 <div className="artFrame">
                                 <img className="artFile" src={item.art} alt="art" />
                                 <div className="artTitle">{item.name}</div>
-                                <div className="artDescription">{"need to check AP for NFT metadata"}</div>
+                                <div className="artDescription">{"need to check API for NFT metadata"}</div>
                                 </div>
                                 <div className="artist">
                                 <div className="profileMask">
