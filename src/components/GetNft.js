@@ -79,7 +79,7 @@ function GetNft({view, setView, setObjArray, objArray}) {
 
 
                 <div className="nftConfirm">
-                    {view.map((item,index)=>{return <div className="test">
+                    {view.map((item,index)=>{return <div className="cardPreviewWrapper">
                                 <div className="cardPreview">
                                 <div className="artFrame">
                                 <img className="artFile" src={item.art} alt="art" />

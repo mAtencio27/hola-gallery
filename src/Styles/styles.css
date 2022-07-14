@@ -1,7 +1,7 @@
 :root {
   background-color: black;
 
-/**/
+/*
   --test1: blue;
   --test2: orangered;
   --test3: yellow;
@@ -11,7 +11,7 @@
   --test7: skyblue;
   --test8: orange;
   --test9: green;
-/*
+*/
   --test1: transparent;
   --test2: transparent;
   --test3: transparent;
@@ -21,7 +21,7 @@
   --test7: transparent;
   --test8: transparent;
   --test9: transparent;
-*/  
+/**/  
 }
 
 
@@ -76,7 +76,7 @@ Card styling for the Carousel
 .artDescription {
   background-color: var(--test4);
   position: absolute;
-  font-size: 2vh;
+  font-size: 1.5vh;
   top: 87%;
   height: 12%;
   width: 100%;
@@ -100,7 +100,7 @@ Card styling for the Carousel
 .twitterHandleText {
   background-color: var(--test6);
   position: absolute;
-  font-size: 2.5vh;
+  font-size: 2vh;
   height: 14%;
   top: 25%;
   width: 100%;
@@ -109,6 +109,7 @@ Card styling for the Carousel
 .artistBioText {
   background-color: var(--test7);
   position: absolute;
+  font-size: 1vh;
   padding-left: 15vw;
   padding-right: 15vw;
   top: 40%;
@@ -197,9 +198,6 @@ Preview Card(s) when submitting addresses
   min-height: 28vh;
   left: 10vw;
   top: 30vh;
-  border-style: outset;
-  border-color: grey;
-  border-width: 2px;
 
   display: flex;
   flex-direction: row;
@@ -212,7 +210,7 @@ Preview Card(s) when submitting addresses
 
 }
 
-.test {
+.cardPreviewWrapper {
   width: 10vw;
   height: 17.8vw;
   border-style: outset;
