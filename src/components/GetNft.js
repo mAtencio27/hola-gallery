@@ -53,8 +53,8 @@ function GetNft({view, setView, setObjArray, objArray}) {
     //DCXiVUZMPKb8mQu7MeHu7wrmTPsyf5uwdeDQfeuKTX9j
     //nc9aapaG2on7kKgG6SeuP176XREKiuUuFSwaz9CHXmF
     //AZf3ww7ZwpkRfmNsoQN5RqJRqgJ6TKv5a4NvJeL8iznT
-
     return (
+        
             <div className="submissionScreen">
                 <h1>Fart Viewer</h1>
                 <h2>Input the NFT token address:</h2>
@@ -64,19 +64,23 @@ function GetNft({view, setView, setObjArray, objArray}) {
                         placeholder="token address" 
                         type="text"
                         onChange={(e) => setAddress(e.target.value)}/>
-                <div className="submitButton"
-                        onClick={submitHandler}>
-                            Submit
-                </div>
-                
-                <Link to="/Carousel">
-                    <div className="proceedButton">
-                        Proceed
+                <div className="buttons">
+                    <div className="submitButton"
+                            onClick={submitHandler}>
+                                Submit
                     </div>
-                </Link>
+                    
+                    <Link to="/Carousel">
+                        <div className="proceedButton">
+                            Proceed
+                        </div>
+                    </Link>
+                </div>
 
-               <div className="nftConfirm">
-                    {view.map((item,index)=>{return <div className="cardPreview">
+
+                <div className="nftConfirm">
+                    {view.map((item,index)=>{return <div className="test">
+                                <div className="cardPreview">
                                 <div className="artFrame">
                                 <img className="artFile" src={item.art} alt="art" />
                                 <div className="artTitle">{item.name}</div>
@@ -102,8 +106,10 @@ function GetNft({view, setView, setObjArray, objArray}) {
                                     alt="qr code"
                                     />
                                 </div>
-                    </div>})}
+                    </div>    
+                        </div>})}
                 </div>
+                
 
 
             </div>
