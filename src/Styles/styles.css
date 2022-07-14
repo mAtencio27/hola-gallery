@@ -41,8 +41,41 @@ h1, h2, h3, p,
   font-family: 'Arimo';
 }
 
+h1 {
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+h2 {
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+h3 {
+  padding: 0;
+}
+
+p {
+  padding-left: 10vw;
+  padding-right: 10vw;
+  text-align: left;
+}
+
 a:link, a:visited, a:hover, a:active {
   text-decoration: none;
+}
+
+/*
+Styling for Welcome page
+*/
+
+.welcome {
+  width: 100%;
+  height: 50vh;
+  position:relative;
+
+  display: flex;
+  flex-direction: column;
 }
 
 /*
@@ -50,6 +83,7 @@ Card styling for the Carousel
 */
 
 .card {
+  background-color: black;
   position: relative;
   height: 100vh;
   width: 100%;
@@ -163,8 +197,7 @@ Submission Screen Page
 
 .buttons {
   width: 100%;
-  height: 6vw;
-
+  object-fit:contain;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -199,16 +232,12 @@ Preview Card(s) when submitting addresses
 
 .nftConfirm {
   /* This div holds all card previews*/
-  background-color: transparent;
   width: 80vw;
   min-height: 28vh;
-  left: 10vw;
-  top: 30vh;
-
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-items: center;
   align-content: flex-start;
   gap: .5em .5em;
@@ -217,8 +246,7 @@ Preview Card(s) when submitting addresses
 }
 
 .cardPreviewWrapper {
-  width: 10vw;
-  height: 17.8vw;
+  object-fit:contain;
   border-style: outset;
   border-color: grey;
   border-width: .05em;
@@ -226,11 +254,9 @@ Preview Card(s) when submitting addresses
 
 .cardPreview {
     /* This div hold all divs which make up one card preview, should populate*/
-  background-color: var(--test1);
-  width: 10vw;
-  height: 17.8vw;
-
-
+  background-color: black;
+  width: 20vw;
+  height: 35.6vw;
   position: relative;
   
 }
@@ -244,39 +270,110 @@ Preview Card(s) when submitting addresses
 
 .nftConfirm .artTitle {
   background-color: var(--test4);
-  font-size: 1vh;
+  font-size: 1.5vh;
 }
 
 .nftConfirm .artDescription {
   background-color: var(--test5);
-  font-size: .5vh;
+  font-size: .8vh;
 }
 .nftConfirm .artist {
   background-color: var(--test6);
 }
 
 .nftConfirm .profileImage {
-  left: calc(50% - .5vh);
-  height: 1vh;
+  left: calc(50% - 1.2vh);
+  height: 2.4vh;
 }
 
 .nftConfirm .twitterHandleText {
   background-color: var(--test7);
-  font-size: .75vh;
+  font-size: 1.2vh;
 }
 
 .nftConfirm .artistBioText {
   background-color: var(--test8);
-  padding-left: .5em;
-  padding-right: .5em;
-  font-size: .35vh;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-size: .6vh;
 }
 
 .nftConfirm .qrCodeFrame {
   background-color: var(--test9);
-  height: 1vh;
+  height: 1.8vh;
 }
 
 .nftConfirm .qrCodeImage {
-  top: calc(50% - .5vh);
+  top: calc(50% - 1vh);
+}
+
+
+
+/*
+mobile and tablet font/image size adjustments 
+*/
+@media only screen and (max-width: 400px) {
+  .nftConfirm .artTitle {
+    font-size: .7vh;
+  }
+
+  .nftConfirm .artDescription {
+    font-size: .3vh;
+  }
+
+  .nftConfirm .profileImage {
+    left: calc(50% - .5vh);
+    height: 1vh;
+  }
+
+  .nftConfirm .twitterHandleText {
+    font-size: .6vh;
+  }
+
+  .nftConfirm .artistBioText {
+    padding-left: .5em;
+    padding-right: .5em;
+    font-size: .25vh;
+  }
+
+  .nftConfirm .qrCodeFrame {
+    height: .8vh;
+  }
+
+  .nftConfirm .qrCodeImage {
+    top: calc(50% - .5vh);
+  }
+}
+
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+  .nftConfirm .artTitle {
+    font-size: .7vh;
+  }
+
+  .nftConfirm .artDescription {
+    font-size: .3vh;
+  }
+
+  .nftConfirm .profileImage {
+    left: calc(50% - .5vh);
+    height: 1vh;
+  }
+
+  .nftConfirm .twitterHandleText {
+    font-size: .6vh;
+  }
+
+  .nftConfirm .artistBioText {
+    padding-left: .5em;
+    padding-right: .5em;
+    font-size: .25vh;
+  }
+
+  .nftConfirm .qrCodeFrame {
+    height: .8vh;
+  }
+
+  .nftConfirm .qrCodeImage {
+    top: calc(50% - .5vh);
+  }
 }
