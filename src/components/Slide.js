@@ -28,7 +28,9 @@ function Slide(view) {
     return(<div className="welcome">
             <h1>Fart Viewer</h1>
               <h2>The NFT art gallery you can install anywhere.</h2>
-              <p>Fart Viewer is the fastest way to spin up an NFT gallery. Using the incredible speed of the Holaplex indexer and the Solana blockchain, you can spin up an NFT gallery in a few minutes by submitting the Holaplex Token Address of each NFT that you would like to display.</p>
+              <div>
+              <p>Using the incredible speed of the Holaplex Indexer and the Solana blockchain, you can spin up an NFT gallery in just a few minutes. Submit the Holaplex Token Address of each NFT that you would like to display and have an event-ready gallery in seconds.</p>
+              </div>
             <a href="/GetNFT" className="proceedButton">
                             <h3>Proceed</h3>
             </a>
