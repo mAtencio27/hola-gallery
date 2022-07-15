@@ -8,11 +8,8 @@ import { LOAD_NFTS } from '../GraphQL/Queries'
 import { Link } from "react-router-dom";
 import "normalize.css/normalize.css";
 import '../Styles/styles.css';
-import '../Styles/styleguide.css';
 import '../Styles/globals.css';
-import '../Styles/submission.css';
-import subButtonImg from '../img/submit@1x.png';
-import proceedButtonImg from '../img/proceed@1x.png'
+
 
 function GetNft({view, setView, setObjArray, objArray}) {
 
@@ -54,45 +51,61 @@ function GetNft({view, setView, setObjArray, objArray}) {
     //DCXiVUZMPKb8mQu7MeHu7wrmTPsyf5uwdeDQfeuKTX9j
     //nc9aapaG2on7kKgG6SeuP176XREKiuUuFSwaz9CHXmF
     //AZf3ww7ZwpkRfmNsoQN5RqJRqgJ6TKv5a4NvJeL8iznT
-
     return (
-            <div className="submission screen">
-                <div className="input-the-nft-token-address-03UtQu valign-text-middle">Input the NFT token address:</div>
-                <div className="input-frame-03UtQu">
-                    <input className="input-box-THA6wH" 
-                            value={address} 
-                            name="inputbox" 
-                            placeholder="token address" 
-                            type="text"
-                            onChange={(e) => setAddress(e.target.value)}/>
-                </div>
-                <div className="submit-frame-03UtQu">
-                    <div className="submit-button-iMW9qQ
-                         smart-layers-pointers" 
-                         onClick={submitHandler}>
-                        <img className="submit-wIbCCc" src={subButtonImg}></img>
+        
+            <div className="submissionScreen">
+                <h1>Fart Viewer</h1>
+                <h2>Input the NFT token address:</h2>
+                <input className="inputBox" 
+                        value={address} 
+                        name="inputbox" 
+                        placeholder="token address" 
+                        type="text"
+                        onChange={(e) => setAddress(e.target.value)}/>
+                <div className="buttons">
+                    <div className="submitButton"
+                            onClick={submitHandler}>
+                                <h3>Submit</h3>
                     </div>
-                </div>
-                
-                <Link to="/Carousel">
-                    <div className="proceed-frame-03UtQu">
-                        <div className="proceed-button-YTGg5t smart-layers-pointers">
-                            <img className="proceed-wxuvQK" src={proceedButtonImg}/>
-                        </div>
-                    </div>
-                </Link>
+                    <a href="/Carousel" className="proceedButton">
+                                                    
+                            <h3>Proceed</h3>
+                    </a>
 
-               
-                {view.map((item,index)=>{return <div className="output-frame-03UtQu">
-                    <div className="output-art-frame-WK0S52">
-                        <img className="output-art-mZ0xXQ" src={item.art}/>
-                    </div>
-                    <div className="output-name-WK0S52">
-                        <div className="output-name-sBiOAQ valign-text-middle">
-                        {item.name}
-                        </div>
-                    </div>
-                </div>})}
+                </div>
+
+
+                <div className="nftConfirm">
+                    {view.map((item,index)=>{return <div className="cardPreviewWrapper">
+                                <div className="cardPreview">
+                                <div className="artFrame">
+                                <img className="artFile" src={item.art} alt="art" />
+                                <div className="artTitle">{item.name}</div>
+                                <div className="artDescription">{"need to check API for NFT metadata"}</div>
+                                </div>
+                                <div className="artist">
+                                <div className="profileMask">
+                                    <img
+                                    className="profileImage"
+                                    src={item.profileMask}
+                                    alt="pfp"
+                                    />
+                                    <div className="twitterHandleText">
+                                    {item.twitterHandle}
+                                    </div>
+                                </div>
+                                <div className="artistBioText">{item.description}</div>
+                                </div>
+                                <div className="qrCodeFrame">
+                                    <img
+                                    className="qrCodeImage"
+                                    src={item.qrCode}
+                                    alt="qr code"
+                                    />
+                                </div>
+                    </div>    
+                        </div>})}
+                </div>
                 
 
 

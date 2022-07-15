@@ -25,15 +25,15 @@ function Slide(view) {
   }
 
 
-    return(<div className="Main">
-            <h1>Slide</h1>
-              <h2> These are the cards
-                  {cards}
-              </h2>
+    return(<div className="welcome">
+            <h1>Fart Viewer</h1>
+              <h2>The NFT art gallery you can install anywhere.</h2>
               <div>
-                  <button onClick={cardMaker}>cards</button>
+              <p>Using the incredible speed of the Holaplex Indexer and the Solana blockchain, you can spin up an NFT gallery in just a few minutes. Submit the Holaplex Token Address of each NFT that you would like to display and have an event-ready gallery in seconds.</p>
               </div>
-            <Link to="/GetNft">get it</Link>
+            <a href="/GetNFT" className="proceedButton">
+                            <h3>Proceed</h3>
+            </a>
           </div>
     )
 };
