@@ -19,35 +19,52 @@ function GetNft({view, setView, setObjArray, objArray}) {
     //APOLLO RESULTS FUNC
     const [getResults,{data}] = useLazyQuery(LOAD_NFTS)
 
-    
-
+    //FORMATTING EXAMPLE TO LINK A QR ADRESS TO THE NFT ITEM
+    //https://www.holaplex.com/nfts/AZf3ww7ZwpkRfmNsoQN5RqJRqgJ6TKv5a4NvJeL8iznT
+    //`https://www.holaplex.com/nfts/${nftAdress}`
     //test button to check the OBJECT data. Will rename
+
+
     let format = (n) => {
-        let fullFlat = {
-            nftAddress:n.data.nft.address,
-            art:n.data.nft.image,
-            name:n.data.nft.name,
-            profileMask:n.data.nft.creators[0].profile.profileImageUrlHighres,
-            twitterHandle:n.data.nft.creators[0].profile.handle,
-            description:n.data.nft.creators[0].profile.description,
-            qrCode: "https://anima-uploads.s3.amazonaws.com/projects/629190b42b83fc7d786b7112/releases/629200c080d6b728d3b7613a/img/allenton-hippo-qr-code-1@2x.png",
-            solanaLogo:"https://anima-uploads.s3.amazonaws.com/projects/629190b42b83fc7d786b7112/releases/629200c080d6b728d3b7613a/img/l-sponsors@2x.png",
-            holaplexLogo:"https://anima-uploads.s3.amazonaws.com/projects/629190b42b83fc7d786b7112/releases/629200c080d6b728d3b7613a/img/holaplex-logo-compressed-07@2x.png"
+        if(n.data.nft.creators[0].profile){
+            let fullFlat = {
+                nftAddress:n.data.nft.address,
+                art:n.data.nft.image,
+                name:n.data.nft.name,
+                profileMask: (n.data.nft.creators[0].profile.profileImageUrlHighres),
+                twitterHandle: (n.data.nft.creators[0].profile.handle),
+                description: (n.data.nft.creators[0].profile.description),
+                qrCode: "https://anima-uploads.s3.amazonaws.com/projects/629190b42b83fc7d786b7112/releases/629200c080d6b728d3b7613a/img/allenton-hippo-qr-code-1@2x.png",
+                solanaLogo:"https://anima-uploads.s3.amazonaws.com/projects/629190b42b83fc7d786b7112/releases/629200c080d6b728d3b7613a/img/l-sponsors@2x.png",
+                holaplexLogo:"https://anima-uploads.s3.amazonaws.com/projects/629190b42b83fc7d786b7112/releases/629200c080d6b728d3b7613a/img/holaplex-logo-compressed-07@2x.png"
+            };
+            return fullFlat
+        }
+        else{
+            let fullFlat = {
+                nftAddress:n.data.nft.address,
+                art:n.data.nft.image,
+                name:n.data.nft.name,
+                profileMask: (""),
+                twitterHandle: ("No Twitter Handle availiable"),
+                description: ("No Description availiable"),
+                qrCode: "https://anima-uploads.s3.amazonaws.com/projects/629190b42b83fc7d786b7112/releases/629200c080d6b728d3b7613a/img/allenton-hippo-qr-code-1@2x.png",
+                solanaLogo:"https://anima-uploads.s3.amazonaws.com/projects/629190b42b83fc7d786b7112/releases/629200c080d6b728d3b7613a/img/l-sponsors@2x.png",
+                holaplexLogo:"https://anima-uploads.s3.amazonaws.com/projects/629190b42b83fc7d786b7112/releases/629200c080d6b728d3b7613a/img/holaplex-logo-compressed-07@2x.png"
+            };
+            return fullFlat
         };
-        //console.log(fullFlat)
-        return fullFlat
     }
 
 
     const submitHandler = async(e) => {
         if(address){
         const res = await getResults({variables: { address }})
-        console.log(res)
+        //console.log(res)
         let formatedData = format(res)
         setView(current => [...current, formatedData])
         setAddress("")
         }
-        console.log(view)
     };
 
     //DCXiVUZMPKb8mQu7MeHu7wrmTPsyf5uwdeDQfeuKTX9j
