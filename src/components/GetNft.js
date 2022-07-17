@@ -42,10 +42,12 @@ function GetNft({view, setView, setObjArray, objArray}) {
     const submitHandler = async(e) => {
         if(address){
         const res = await getResults({variables: { address }})
+        console.log(res)
         let formatedData = format(res)
         setView(current => [...current, formatedData])
         setAddress("")
         }
+        console.log(view)
     };
 
     //DCXiVUZMPKb8mQu7MeHu7wrmTPsyf5uwdeDQfeuKTX9j
@@ -67,10 +69,10 @@ function GetNft({view, setView, setObjArray, objArray}) {
                             onClick={submitHandler}>
                                 <h3>Submit</h3>
                     </div>
-                    <a href="/Carousel" className="proceedButton">
-                                                    
-                            <h3>Proceed</h3>
-                    </a>
+
+                    <Link to="/Carousel" className="proceedButton">
+                        <h3>Proceed</h3>
+                    </Link>
 
                 </div>
 
