@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 import "normalize.css/normalize.css";
 import '../Styles/styles.css';
 import '../Styles/globals.css';
+import QRCode from 'qrcode';
+
 
 
 function GetNft({view, setView, setObjArray, objArray}) {
@@ -24,6 +26,19 @@ function GetNft({view, setView, setObjArray, objArray}) {
     //`https://www.holaplex.com/nfts/${nftAdress}`
     //test button to check the OBJECT data. Will rename
 
+    //GETTING QR CODE
+    const [qr, setQr] = useState('')
+
+    const GenerateQRCode = () => {
+        QRCode.toDataURL(`https://www.holaplex.com/nfts/${address}`,(err, url) => {
+            if (err) return console.error(err)
+
+            console.log(url)
+            setQr(url)
+        }); 
+    }
+
+
 
     let format = (n) => {
         if(n.data.nft.creators[0].profile){
@@ -34,7 +49,8 @@ function GetNft({view, setView, setObjArray, objArray}) {
                 profileMask: (n.data.nft.creators[0].profile.profileImageUrlHighres),
                 twitterHandle: (n.data.nft.creators[0].profile.handle),
                 description: (n.data.nft.creators[0].profile.description),
-                qrCode: "https://anima-uploads.s3.amazonaws.com/projects/629190b42b83fc7d786b7112/releases/629200c080d6b728d3b7613a/img/allenton-hippo-qr-code-1@2x.png",
+                //qrCode: "https://anima-uploads.s3.amazonaws.com/projects/629190b42b83fc7d786b7112/releases/629200c080d6b728d3b7613a/img/allenton-hippo-qr-code-1@2x.png",
+                qrCode: qr,
                 solanaLogo:"https://anima-uploads.s3.amazonaws.com/projects/629190b42b83fc7d786b7112/releases/629200c080d6b728d3b7613a/img/l-sponsors@2x.png",
                 holaplexLogo:"https://anima-uploads.s3.amazonaws.com/projects/629190b42b83fc7d786b7112/releases/629200c080d6b728d3b7613a/img/holaplex-logo-compressed-07@2x.png"
             };
@@ -60,7 +76,6 @@ function GetNft({view, setView, setObjArray, objArray}) {
     const submitHandler = async(e) => {
         if(address){
         const res = await getResults({variables: { address }})
-        //console.log(res)
         let formatedData = format(res)
         setView(current => [...current, formatedData])
         setAddress("")
@@ -80,10 +95,10 @@ function GetNft({view, setView, setObjArray, objArray}) {
                         name="inputbox" 
                         placeholder="token address" 
                         type="text"
-                        onChange={(e) => setAddress(e.target.value)}/>
+                        onChange={(e) => {setAddress(e.target.value); GenerateQRCode()}}/>
                 <div className="buttons">
                     <div className="submitButton"
-                            onClick={submitHandler}>
+                            onClick={()=>{submitHandler()}}>
                                 <h3>Submit</h3>
                     </div>
 
