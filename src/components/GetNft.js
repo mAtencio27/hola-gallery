@@ -29,11 +29,14 @@ function GetNft({view, setView, setObjArray, objArray}) {
     //GETTING QR CODE
     const [qr, setQr] = useState('')
 
-    const GenerateQRCode = () => {
-        QRCode.toDataURL(`https://www.holaplex.com/nfts/${address}`,(err, url) => {
+    const GenerateQRCode = (x) => {
+        let nftAddressString = `https://www.holaplex.com/nfts/${x}`
+        QRCode.toDataURL(nftAddressString,(err, url) => {
             if (err) return console.error(err)
 
-            console.log(url)
+            // console.log(`THIS IS THE QR code URL${url}`)
+            // console.log(`THIS IS THE nftAdressString ${nftAdressString}`)
+             console.log(nftAddressString)
             setQr(url)
         }); 
     }
@@ -49,7 +52,6 @@ function GetNft({view, setView, setObjArray, objArray}) {
                 profileMask: (n.data.nft.creators[0].profile.profileImageUrlHighres),
                 twitterHandle: (n.data.nft.creators[0].profile.handle),
                 description: (n.data.nft.creators[0].profile.description),
-                //qrCode: "https://anima-uploads.s3.amazonaws.com/projects/629190b42b83fc7d786b7112/releases/629200c080d6b728d3b7613a/img/allenton-hippo-qr-code-1@2x.png",
                 qrCode: qr,
                 solanaLogo:"https://anima-uploads.s3.amazonaws.com/projects/629190b42b83fc7d786b7112/releases/629200c080d6b728d3b7613a/img/l-sponsors@2x.png",
                 holaplexLogo:"https://anima-uploads.s3.amazonaws.com/projects/629190b42b83fc7d786b7112/releases/629200c080d6b728d3b7613a/img/holaplex-logo-compressed-07@2x.png"
@@ -64,7 +66,7 @@ function GetNft({view, setView, setObjArray, objArray}) {
                 profileMask: (""),
                 twitterHandle: ("No Twitter Handle availiable"),
                 description: ("No Description availiable"),
-                qrCode: "https://anima-uploads.s3.amazonaws.com/projects/629190b42b83fc7d786b7112/releases/629200c080d6b728d3b7613a/img/allenton-hippo-qr-code-1@2x.png",
+                qrCode: qr,
                 solanaLogo:"https://anima-uploads.s3.amazonaws.com/projects/629190b42b83fc7d786b7112/releases/629200c080d6b728d3b7613a/img/l-sponsors@2x.png",
                 holaplexLogo:"https://anima-uploads.s3.amazonaws.com/projects/629190b42b83fc7d786b7112/releases/629200c080d6b728d3b7613a/img/holaplex-logo-compressed-07@2x.png"
             };
@@ -79,6 +81,7 @@ function GetNft({view, setView, setObjArray, objArray}) {
         let formatedData = format(res)
         setView(current => [...current, formatedData])
         setAddress("")
+        setQr("")
         }
     };
 
@@ -95,7 +98,7 @@ function GetNft({view, setView, setObjArray, objArray}) {
                         name="inputbox" 
                         placeholder="token address" 
                         type="text"
-                        onChange={(e) => {setAddress(e.target.value); GenerateQRCode()}}/>
+                        onChange={(e) => {setAddress(e.target.value);GenerateQRCode(e.target.value)}}/>
                 <div className="buttons">
                     <div className="submitButton"
                             onClick={()=>{submitHandler()}}>
