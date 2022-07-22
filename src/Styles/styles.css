@@ -158,8 +158,8 @@ Card styling for the Carousel
 
 .qrCodeFrame {
   background-color: var(--test8);
-  top: 93%;
-  height: 5vh;
+  top: 87%;
+  height: 10vh;
   position: absolute;
   width: 100%;
 }
